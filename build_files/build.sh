@@ -13,7 +13,7 @@ set -ouex pipefail
 # dnf5 install -y tmux
 dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-server
 
-sudo dnf copr enable scottames/ghostty
+dnf5 copr enable scottames/ghostty
 dnf5 install -y ghostty --skip-unavailable
 
 # ADD SECURITY FEATURES
