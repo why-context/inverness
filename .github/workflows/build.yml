@@ -125,9 +125,9 @@ jobs:
             --secret "id=GITHUB_TOKEN,env=GITHUB_TOKEN" \
             --tag raw-img .
 
-      Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
-      This does not make your image faster to download, just provides better resumability and fixes a few errors.
-      Documentation for Rechunk is provided on their github repository at https://github.com/hhd-dev/rechunk
+      # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
+      # This does not make your image faster to download, just provides better resumability and fixes a few errors.
+      # Documentation for Rechunk is provided on their github repository at https://github.com/hhd-dev/rechunk
       You can enable it by uncommenting the following lines:
       - name: Run Rechunker
         id: rechunk
