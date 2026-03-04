@@ -13,10 +13,10 @@ set -ouex pipefail
 # dnf5 install -y tmux
 dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-server
 
+sudo dnf copr enable scottames/ghostty
+dnf5 install -y ghostty --skip-unavailable
 
 # ADD SECURITY FEATURES
-dnf5 install -y ghostty
-
 tee -a /etc/NetworkManager/conf.d/00-macrandomization.conf > /dev/null << 'EOF'
 [device]
 wifi.scan-rand-mac-address=yes
