@@ -13,36 +13,8 @@ set -ouex pipefail
 # dnf5 install -y tmux
 dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-server
 
-dnf5 copr enable scottames/ghostty
+dnf5 copr enable scottames/ghostty -y
 dnf5 install -y ghostty --skip-unavailable
-
-# ADD SECURITY FEATURES
-tee -a /etc/NetworkManager/conf.d/00-macrandomization.conf > /dev/null << 'EOF'
-[device]
-wifi.scan-rand-mac-address=yes
-
-[connection]
-wifi.cloned-mac-address=stable
-ethernet.cloned-mac-address=stable
-EOF
-
-tee -a /etc/sysctl.d/99-network-hardening.conf > /dev/null << 'EOF'
-net.ipv4.conf.all.accept_redirects = 0
-net.ipv6.conf.all.accept_redirects = 0
-
-net.ipv4.icmp_echo_ignore_broadcasts = 1
-
-kernel.randomize_va_space = 2
-EOF
-
-mkdir -p /etc/systemd/resolved.conf.d/
-tee -a /etc/systemd/resolved.conf.d/99-DNS-DoT.conf > /dev/null << 'EOF'
-[Resolve]
-DNSSEC=allow-downgrade
-DNSOverTLS=opportunistic
-Cache=yes
-EOF
-
 
 # Use a COPR Example:
 #
