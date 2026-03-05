@@ -11,10 +11,11 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 # dnf5 install -y tmux
-dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-server
-
 dnf5 copr enable scottames/ghostty -y
+
+dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-server konsole
 dnf5 install -y ghostty --skip-unavailable
+
 dnf5 -y copr disable scottames/ghostty
 
 # Use a COPR Example:
