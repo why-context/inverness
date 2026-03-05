@@ -15,6 +15,7 @@ dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-se
 
 dnf5 copr enable scottames/ghostty -y
 dnf5 install -y ghostty --skip-unavailable
+dnf5 -y copr disable scottames/ghostty
 
 # Use a COPR Example:
 #
