@@ -13,10 +13,12 @@ set -ouex pipefail
 # dnf5 install -y tmux
 dnf5 copr enable scottames/ghostty -y
 
-dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-server konsole
-dnf5 install -y ghostty --skip-unavailable
+dnf5 remove -y waydroid waydroid-selinux ptyxis lutris qemu qemu-* xrdc spice-server akonadi-server konsole sudo
+dnf5 install -y ghostty sudo-rs --skip-unavailable
 
 dnf5 -y copr disable scottames/ghostty
+
+ln -sf /usr/bin/sudo-rs /usr/bin/sudo
 
 # Use a COPR Example:
 #
